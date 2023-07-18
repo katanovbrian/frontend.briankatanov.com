@@ -1,0 +1,9 @@
+
+<div *ngIf="!isHome(); else homeBlock">
+	<app-top-nav></app-top-nav>
+	<router-outlet></router-outlet>
+	<app-footer></app-footer>
+</div>
+<ng-template #homeBlock>
+	<router-outlet></router-outlet>
+</ng-template>

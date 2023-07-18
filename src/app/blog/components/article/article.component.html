@@ -1,0 +1,22 @@
+<div id="article" class="pt-4 mx-auto" *ngIf="blog">
+    <a [routerLink]="['/blog/', blog._id ]"><h5 class="card-title">{{ blog.title }}</h5></a>
+    <h6 class="card-subtitle mb-2 text-muted">{{ blog.createdAt | date:'short'}}</h6>
+
+
+    <div class="bg-image" 
+     style="background-image: url('/image-file/{{ blog.image }}');
+            height: 50vh;">
+    </div>
+    <div class="container pt-4 mx-auto">
+        <p class="card-text">
+            {{ blog.description }}
+        </p>
+        
+        <p class="card-text">
+            <small class="text-muted">Last updated {{ blog.updatedAt | date:'short' }}</small>
+        </p>
+        
+        <div markdown katex [src]="getBlogContentUrl()"></div>
+ 
+    </div>
+</div>

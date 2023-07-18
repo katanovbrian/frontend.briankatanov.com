@@ -1,0 +1,225 @@
+<section class="one first">
+	<ng-particles
+		[id]="id"
+		[options]="particlesOptions"
+		[particlesInit]="particlesInit"
+		(particlesLoaded)="particlesLoaded($event)"
+	></ng-particles>
+	<div class="container pt-4 px-auto mx-auto">
+		
+		<h2>hi im brian katanov</h2>
+		<div id="planet" class="planet">
+			<div class="sun">
+			<input [(ngModel)]="sunChecked" class="toggle" id="sun" type="checkbox"/>
+			<label class="label" for="sun"><span class="sun__inner"><span class="sun__part"></span></span></label>
+			</div>
+			<div class="mercury">
+			<input [(ngModel)]="mercuryChecked" class="toggle" id="mercury" type="checkbox"/>
+			<label class="label" for="mercury"><span class="mercury__inner"><span class="mercury__part"></span><span class="mercury__part"></span></span></label>
+			</div>
+			<div class="venus">
+			<input [(ngModel)]="venusChecked" class="toggle" id="venus" type="checkbox"/>
+			<label class="label" for="venus"><span class="venus__inner"><span class="venus__part"></span><span class="venus__part"></span></span></label>
+			</div>
+			<div class="earth">
+			<input [(ngModel)]="earthChecked" class="toggle" id="earth" type="checkbox"/>
+			<label class="label" for="earth"><span class="earth__inner"><span class="earth__part"></span><span class="earth__part"></span></span></label>
+			</div>
+			<div class="mars">
+			<input [(ngModel)]="marsChecked" class="toggle" id="mars" type="checkbox"/>
+			<label class="label" for="mars"><span class="mars__inner"><span class="mars__part"></span></span></label>
+			</div>
+			<div class="jupiter">
+			<input [(ngModel)]="jupiterChecked" class="toggle" id="jupiter" type="checkbox"/>
+			<label class="label" for="jupiter"><span class="jupiter__inner"><span class="jupiter__part"></span><span class="jupiter__part"></span></span></label>
+			</div>
+			<div class="saturn">
+			<input [(ngModel)]="saturnChecked" class="toggle" id="saturn" type="checkbox"/>
+			<label class="label" for="saturn"><span class="saturn__inner"><span class="saturn__part"></span><span class="saturn__part"></span></span></label>
+			</div>
+			<div class="uranus">
+			<input [(ngModel)]="uranusChecked" class="toggle" id="uranus" type="checkbox"/>
+			<label class="label" for="uranus"><span class="uranus__inner"></span></label>
+			</div>
+			<div class="neptune">
+			<input [(ngModel)]="neptuneChecked" class="toggle" id="neptune" type="checkbox"/>
+			<label class="label" for="neptune"><span class="neptune__inner"><span class="neptune__part"></span><span class="neptune__part"></span></span></label>
+			</div>
+		</div>
+	
+	</div>
+</section>
+<section class="two pt-4">
+		<div class="card mx-auto" style="max-width: 540px;">
+			<div class="row g-0">
+			  <div class="col-md-4">
+				<img src="/assets/headshot-transformed.jpeg" class="img-fluid rounded-start" alt="picture of me">
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Brian Katanov</h5>
+				  <p class="card-text">
+					im a software engineer from queens, new york <br>
+					i got my bse in cs and a minor in physics at the university of michigan <br>
+					now i do backend and fullstack development <br>
+					in my free time i talk about space and quantum computing <br>
+				  </p>
+				  <p class="card-text">check out my</p>
+				  <ul>
+					<li>
+						<a routerLinkActive="true" routerLink="/projects">projects</a>
+					</li>
+					<li>
+						<a routerLinkActive="true" routerLink="/blog">blog</a>
+					</li>
+				  </ul>
+				  <div class="d-flex justify-content-evenly">
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+</section>
+<section class="one">
+	<div class="container">
+	<h4 class="pt-4 pb-4 text-center">my skills are</h4>
+	<div class="mx-auto row row-cols-3 row-cols-md-6 row-cols-lg-8 g-3 container pt-2">
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/NodeJS-Light.svg" alt="NodeJS Logo">
+				<div class="card-footer text-center text-muted">
+					NodeJs
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/ExpressJS-Light.svg" alt="ExpressJS Logo">
+				<div class="card-footer text-center text-muted">
+					ExpressJs
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/Angular-Light.svg" alt="AngularJS Logo">
+				<div class="card-footer text-center text-muted">
+					AngularJs
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/MongoDB.svg" alt="MongoDB Logo">
+				<div class="card-footer text-center text-muted">
+					MongoDB
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/MySQL-Light.svg" alt="MongoDB Logo">
+				<div class="card-footer text-center text-muted">
+					MySQL
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/Python-Light.svg" alt="Python Logo">
+				<div class="card-footer text-center text-muted">
+					Python
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/HTML.svg" alt="Python Logo">
+				<div class="card-footer text-center text-muted">
+					HTML
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/CSS.svg" alt="Python Logo">
+				<div class="card-footer text-center text-muted">
+					CSS
+				  </div>
+			  </div>
+		</div>
+		<div class="col grow">
+			<div class="card" style="width: 8rem;">
+				<img class="card-img-top" src="/assets/skills/TypeScript.svg" alt="TypeScript Logo">
+				<div class="card-footer text-center text-muted">
+					TypeScript
+				  </div>
+			  </div>
+		</div>
+
+	</div>
+</div>
+</section>
+<section class="two">
+	<div class="container">
+		<h4 class="pt-4 pb-4 text-center">also proficient with</h4>
+		<div class="mx-auto row row-cols-3 row-cols-md-6 row-cols-lg-8 g-3 container pt-2">
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/AWS-Light.svg" alt="AWS Logo">
+					<div class="card-footer text-center text-muted">
+						AWS
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/Git.svg" alt="Git Logo">
+					<div class="card-footer text-center text-muted">
+						Git
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/Bash-Light.svg" alt="Bash Logo">
+					<div class="card-footer text-center text-muted">
+						Bash
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/Django.svg" alt="Django Logo">
+					<div class="card-footer text-center text-muted">
+						Django
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/React-Light.svg" alt="React Logo">
+					<div class="card-footer text-center text-muted">
+						React
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/Rust.svg" alt="Rust Logo">
+					<div class="card-footer text-center text-muted">
+						Rust
+					  </div>
+				  </div>
+			</div>
+			<div class="col grow">
+				<div class="card" style="width: 8rem;">
+					<img class="card-img-top" src="/assets/skills/GoLang.svg" alt="GoLang Logo">
+					<div class="card-footer text-center text-muted">
+						GoLang
+					  </div>
+				  </div>
+			</div>
+		</div>
+	</div>
+</section>

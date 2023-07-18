@@ -1,0 +1,79 @@
+<!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+			<div *ngIf="updateFlag; else elseBlock">
+			  <h5 class="modal-title" id="projectModalLabel">Update Project</h5>
+			</div>
+			<ng-template #elseBlock>
+			  <h5 class="modal-title" id="projectModalLabel">New Project</h5>
+			</ng-template>
+  
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<form [formGroup]="newProject">
+				<label class="form-label" for="title">Title</label>
+				<input class="form-control" type="text" id="title" formControlName="title">
+				
+				<label class="form-label" for="description">Description</label>
+				<textarea class="form-control" type="text" id="description" formControlName="description"></textarea>
+				
+				<label class="form-label" for="link">Link</label>
+				<input class="form-control" type="text" id="link" formControlName="link">
+	
+				<label class="form-label" for="image">Image</label>
+				<input class="form-control" type="file" id="imageFile" accept=".jpg,.jpeg,.png" (change)="onImageChange($event)">
+				
+				<label class="form-label">Tags</label>
+				<div class = "container pt-2" formArrayName="tags">
+					<div class="pt-2 mx-auto d-flex justify-content-between w-50" *ngFor="let tag of getTags().controls; let i = index; let last = last">
+						<input class="tagInput form-control" id="{{ 'tag-' + i }}" type="text" [formControlName]="i">
+						<i class="fas fa-trash mx-auto mt-2 px-2" (click)="removeTag(i)"></i>
+						<div *ngIf="last">
+							<i class="mx-auto fas fa-plus mt-2 px-2" (click)="addTag()"></i>
+						</div>
+					</div>
+				</div>
+			  </form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-f-dismiss="modal" (click)="clearForm()">Close</button>
+			<div *ngIf="updateFlag; else elseBlock2">
+			  <button class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Update Project</button>
+			</div>
+			<ng-template #elseBlock2>
+			  <button class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Create Project</button>
+			</ng-template>
+		  </div>
+	  </div>
+	</div>
+  </div>
+
+<div class="container pt-2">
+
+	
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 container pt-2">
+		<div class="col" *ngFor="let project of projects">
+			<div class="card">
+				<div class="d-flex justify-content-between">
+				<div></div>
+				<div *ngIf="canEdit()">
+					<i class="fas fa-pencil-alt px-2" data-bs-toggle="modal" data-bs-target="#projectModal" (click)="updateProject(project)"></i>
+					<i class="fas fa-trash px-2" (click)="deleteProject(project)"></i>
+				</div>
+			</div>
+			<img src="/image-file/{{project.image}}" class="card-img-top px-auto mx-auto" alt="Hollywood Sign on The Hill">
+			<div class="card-body">
+				<h5 class="card-title">{{project.title}}</h5>
+				<p class="card-text">{{project.description}}</p>
+				<p class="card-text">
+					<span *ngFor="let tag of project.tags" class="badge rounded-pill text-bg-primary">{{tag}}</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

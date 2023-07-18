@@ -1,0 +1,22 @@
+{
+  "/api": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/auth": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/image-file": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/blog-file": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "voila" : {
+	"target": "http://localhost:8866",
+	"secure": false
+  }
+}

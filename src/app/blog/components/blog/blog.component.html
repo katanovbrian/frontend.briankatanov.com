@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+			<div *ngIf="updateFlag; else elseBlock">
+			  <h5 class="modal-title" id="blogModalLabel">Update Blog Post</h5>
+			</div>
+			<ng-template #elseBlock>
+			  <h5 class="modal-title" id="blogModalLabel">New Blog Post</h5>
+			</ng-template>
+  
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <form [formGroup]="newBlog">
+			<label for="title">Title</label>
+			<input class="form-control" type="text" id="title" formControlName="title">
+			
+			<label for="description">Description</label>
+			<input class="form-control" type="text" id="description" formControlName="description">
+			
+			<label for="image">Image</label>
+			<input class="form-control" type="file" id="imageFile" accept=".jpg,.jpeg,.png" (change)="onImageChange($event)">
+			
+			<label for="content">Content</label>
+			<input class="form-control" type="file" id="contentFile" accept=".txt,.md" (change)="onContentChange($event)">
+			
+		  </form>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearForm()">Close</button>
+		  <button class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Submit</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+
+	<div *ngFor="let blog of blogs" class="container pt-2 mx-auto">
+
+		<div class="mx-auto card mb-3">
+			<div class="row g-0">
+			<div class="card">
+				<div class="card-header d-flex justify-content-between">
+					<a [routerLink]="['/blog/', blog._id]">
+						{{blog.title}}
+					</a>
+					<div *ngIf="canEdit()">
+						<i class="fas fa-pencil-alt px-2" data-bs-toggle="modal" data-bs-target="#blogModal" (click)="updatePost(blog)"></i>
+						<i class="fas fa-trash px-2" (click)="deletePost(blog)"></i>
+					</div>
+				</div>
+				<div class="card-body">
+					{{blog.createdAt | date:'short' }}
+					<blockquote class="blockquote mb-0">
+						<p>{{blog.description}}</p>
+						<footer class="blockquote-footer">Updated: {{blog.updatedAt | date:'short' }}</footer>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+		

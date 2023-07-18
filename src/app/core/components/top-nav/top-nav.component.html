@@ -1,0 +1,124 @@
+<!-- Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+        <h5 class="modal-title" id="passwordModalLabel">Change Password</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<form [formGroup]="newPassword">
+				
+				<label for="oldPassword">Old Password</label>
+				<input class="form-control" type="password" id="oldPassword" formControlName="oldPassword">
+					
+
+				<label for="newPassword">New Password</label>
+				<input class="form-control" type="password" id="newPassword" formControlName="newPassword">
+						  
+			  </form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearFormPassword()">Close</button>
+			<button class="btn btn-primary" data-bs-dismiss="modal" (click)="submitPassword()">Submit</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+
+
+
+<!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <div *ngIf="registerFlag; else elseBlock">
+            <h5 class="modal-title" id="loginModalLabel">Register</h5>
+          </div>
+          <ng-template #elseBlock>
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          </ng-template>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<form [formGroup]="newUser">
+				<label for="username">Username</label>
+				<input class="form-control" type="text" id="username" formControlName="username">
+	  
+				<div *ngIf="registerFlag">
+				  <label for="email">Email</label>
+				  <input class="form-control" type="text" id="email" formControlName="email">  
+				</div>
+				
+				<label for="password">Password</label>
+				<input class="form-control" type="password" id="password" formControlName="password">
+						  
+			  </form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearForm()">Close</button>
+			<button class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Submit</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<div class="container-fluid">
+		<a class="navbar-brand" role="button" href="/">
+			<div class="nav-link active">Brian</div>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		  <li class="nav-item">
+			<a class="nav-link" role="button" routerLinkActive="active" routerLink="projects/">Projects</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" role="button" routerLinkActive="active" routerLink="blog/">Blog</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" role="button" routerLinkActive="active" routerLink="notebooks/">Notebooks</a>
+		  </li>
+		</ul>
+		<ul class="navbar-nav">
+			<li class="container mx-auto" *ngIf="loggedIn()">
+				<h4 class="pt-2">Hi {{getUsername()}}</h4>
+			</li>
+
+			<li class="nav-item dropdown dropstart">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<img
+					src="assets/avatar1/thumbs-0.svg"
+					class="rounded-circle"
+					height="35"
+					alt="Profile"
+					loading="lazy"
+				  />  
+				</a>
+				<ul class="dropdown-menu">
+					<li *ngIf="loggedIn()">
+					<a class="dropdown-item" (click)="submitLogout()">Logout</a>
+					</li>
+					<li *ngIf="loggedIn()">
+						<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#passwordModal" >Change Password</a>
+					</li>
+					<li *ngIf="!loggedIn()">
+					<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal" (click)="showLoginForm()" >Login</a>
+					</li>
+					<li *ngIf="!loggedIn()">
+					<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal" (click)="showRegisterForm()" >Register</a>
+					</li>
+				</ul>
+			  </li>
+		</ul>
+  
+	  </div>
+	</div>
+  </nav>
